@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0d10" />
+  <title>Open TV — Live</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">OPEN TV</div>
+        <h1>Live TV</h1>
+      </div>
+      <div class="live-pill"><span></span>LIVE</div>
+    </header>
+
+    <section class="player-card">
+      <video id="video" controls playsinline preload="metadata"></video>
+      <div id="playerEmpty" class="player-empty">
+        <div class="play-icon">▶</div>
+        <strong>Pick a channel</strong>
+        <span>Verified U.S. live streams</span>
+      </div>
+      <div class="now-playing">
+        <div>
+          <div id="nowName" class="now-name">No channel selected</div>
+          <div id="nowGroup" class="now-group">Choose from the guide below</div>
+        </div>
+        <button id="favoriteNow" class="icon-btn" aria-label="Favorite current channel">☆</button>
+      </div>
+    </section>
+
+    <section class="controls">
+      <label class="search-wrap">
+        <span>⌕</span>
+        <input id="search" type="search" placeholder="Search channels" autocomplete="off" />
+      </label>
+      <div id="status" class="status">Loading channels…</div>
+    </section>
+
+    <nav id="categories" class="categories" aria-label="Channel categories"></nav>
+
+    <section>
+      <div class="section-title">
+        <h2 id="listTitle">All channels</h2>
+        <span id="count"></span>
+      </div>
+      <div id="channels" class="channels"></div>
+    </section>
+  </main>
+</body>
+</html>
