@@ -1,0 +1,1 @@
+{"name":"Open TV","short_name":"Open TV","start_url":"./","scope":"./","display":"standalone","background_color":"#000000","theme_color":"#000000","description":"Simple TV launcher for your streaming, network, sports and news services.","icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
