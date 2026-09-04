@@ -36,7 +36,6 @@ function loadFavorites() {
     const saved = JSON.parse(localStorage.getItem(FAVORITES_KEY) || '[]');
     return new Set(Array.isArray(saved) ? saved : []);
   } catch {
-    localStorage.removeItem(FAVORITES_KEY);
     return new Set();
   }
 }
@@ -44,7 +43,11 @@ function loadFavorites() {
 const favorites = loadFavorites();
 
 function saveFavorites() {
-  localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favorites]));
+  try {
+    localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favorites]));
+  } catch {
+    // Favorites still work for this session when storage is unavailable.
+  }
 }
 
 function categoryOf(name, group = '') {
@@ -206,6 +209,7 @@ function renderChannels() {
     row.setAttribute('aria-label', `Play ${channel.name}`);
     row.onclick = () => playChannel(channel);
     row.onkeydown = event => {
+      if (event.target !== row) return;
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
         playChannel(channel);
