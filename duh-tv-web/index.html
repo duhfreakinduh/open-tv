@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#090d14">
+  <title>DUH TV</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>DUH TV</h1>
+      <p>Live channel browser powered by CDNLiveTV's documented API</p>
+    </div>
+    <div class="top-actions">
+      <input id="search" type="search" placeholder="Search channels…" autocomplete="off">
+      <button id="reloadBtn" class="button secondary">Reload</button>
+    </div>
+  </header>
+
+  <nav class="tabs" aria-label="Main sections">
+    <button class="tab active" data-view="channels">Channels</button>
+    <button class="tab" data-view="sports">Sports</button>
+  </nav>
+
+  <main class="layout">
+    <section class="content">
+      <div id="channelControls" class="controls">
+        <select id="countryFilter"><option value="all">All countries</option></select>
+        <select id="statusFilter">
+          <option value="all">All statuses</option>
+          <option value="online">Online</option>
+          <option value="offline">Offline</option>
+        </select>
+        <button id="usOnlyBtn" class="button secondary">U.S. only</button>
+        <button id="favoritesBtn" class="button secondary">Favorites</button>
+        <span id="channelCount" class="count"></span>
+      </div>
+
+      <div id="sportsControls" class="controls hidden">
+        <select id="sportFilter">
+          <option value="all">All sports</option>
+          <option value="Soccer">Soccer</option>
+          <option value="NFL">NFL</option>
+          <option value="NBA">NBA</option>
+          <option value="NHL">NHL</option>
+        </select>
+        <button id="liveSportsBtn" class="button secondary">Live only</button>
+        <span id="sportsCount" class="count"></span>
+      </div>
+
+      <div id="notice" class="notice hidden"></div>
+      <div id="channelGrid" class="grid"></div>
+      <div id="sportsGrid" class="sports-grid hidden"></div>
+    </section>
+
+    <aside class="player-panel">
+      <div id="player" class="player">
+        <div class="empty-player">
+          <strong>Select a channel</strong>
+          <span>The provider's documented iframe player will appear here.</span>
+        </div>
+      </div>
+      <div class="now-playing">
+        <h2 id="nowTitle">Nothing playing</h2>
+        <p id="nowMeta">Choose a channel or sports-event channel.</p>
+        <div class="player-actions">
+          <button id="openPlayerBtn" class="button primary" disabled>Open player</button>
+          <button id="copyUrlBtn" class="button secondary" disabled>Copy URL</button>
+        </div>
+      </div>
+      <div class="provider-note">
+        DUH TV does not host or restream video. Channel metadata, logos, event data and player pages are requested from CDNLiveTV at runtime.
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    <span>Third-party service data can change or go offline without notice.</span>
+    <a href="https://cdnlivetv.is/" target="_blank" rel="noopener noreferrer">CDNLiveTV documentation</a>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
