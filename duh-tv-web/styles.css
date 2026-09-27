@@ -86,3 +86,31 @@ footer a{color:#9ac1ff}
   .count{width:100%;margin-left:0}
   footer{flex-direction:column}
 }
+
+/* API expansion */
+:root{--bg:#09060f;--surface:#151021;--surface-2:#20162f;--line:#382650;--accent:#a66cff}
+.topbar{background:rgba(9,6,15,.95)}
+.tabs{background:#0f0918;overflow-x:auto}
+.tab{white-space:nowrap}
+.button.primary{color:#fff}
+.grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.card{min-height:132px;padding:10px}
+.logo-box{height:58px}
+.media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:11px}
+.media-card{border:1px solid var(--line);background:var(--surface);border-radius:14px;overflow:hidden;min-height:250px}
+.media-card img{width:100%;aspect-ratio:2/3;object-fit:cover;background:var(--surface-2)}
+.media-card .media-body{padding:10px}
+.media-card h3{margin:0 0 5px;font-size:.9rem}
+.media-card p{margin:0;color:var(--muted);font-size:.74rem;line-height:1.35}
+.weather-grid{display:grid;gap:12px}
+.weather-hero{border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#241437,#120b1d);padding:18px}
+.weather-hero h2{margin:0 0 5px}.weather-now{font-size:2.5rem;font-weight:800}
+.forecast-row{display:grid;grid-template-columns:repeat(7,minmax(100px,1fr));gap:8px;overflow-x:auto}
+.forecast-day{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:10px;min-width:100px}
+.forecast-day strong{display:block;margin-bottom:5px}
+.radio-grid{display:grid;gap:9px}
+.radio-card{display:grid;grid-template-columns:46px 1fr auto;align-items:center;gap:10px;border:1px solid var(--line);background:var(--surface);border-radius:13px;padding:9px}
+.radio-card img{width:46px;height:46px;object-fit:contain;border-radius:8px;background:#fff}
+.radio-card h3{margin:0;font-size:.9rem}.radio-card p{margin:3px 0 0;color:var(--muted);font-size:.72rem}
+.audio-player{width:100%;padding:12px}.audio-player audio{width:100%}
+@media(max-width:540px){.tabs{padding:7px 10px}.tab{padding:8px 10px}.media-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.radio-card{grid-template-columns:40px 1fr}.radio-card .button{grid-column:1/-1}}
