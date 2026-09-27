@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#090d14">
+  <title>DUH TV</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>DUH TV</h1>
+      <p>Live TV • Sports • TV Guide • Weather • Radio</p>
+    </div>
+    <div class="top-actions">
+      <input id="search" type="search" placeholder="Search channels…" autocomplete="off">
+      <button id="reloadBtn" class="button secondary">Reload</button>
+    </div>
+  </header>
+
+  <nav class="tabs" aria-label="Main sections">
+    <button class="tab active" data-view="channels">Channels</button>
+    <button class="tab" data-view="sports">Sports</button>
+    <button class="tab" data-view="shows">TV Guide</button>
+    <button class="tab" data-view="weather">Weather</button>
+    <button class="tab" data-view="radio">Radio</button>
+  </nav>
+
+  <main class="layout">
+    <section class="content">
+      <div id="channelControls" class="controls">
+        <select id="countryFilter"><option value="all">All countries</option></select>
+        <select id="statusFilter">
+          <option value="all">All statuses</option>
+          <option value="online">Online</option>
+          <option value="offline">Offline</option>
+        </select>
+        <button id="usOnlyBtn" class="button secondary">U.S. only</button>
+        <button id="favoritesBtn" class="button secondary">Favorites</button>
+        <span id="channelCount" class="count"></span>
+      </div>
+
+      <div id="sportsControls" class="controls hidden">
+        <select id="sportFilter">
+          <option value="all">All sports</option>
+          <option value="Soccer">Soccer</option>
+          <option value="NFL">NFL</option>
+          <option value="NBA">NBA</option>
+          <option value="NHL">NHL</option>
+        </select>
+        <button id="liveSportsBtn" class="button secondary">Live only</button>
+        <span id="sportsCount" class="count"></span>
+      </div>
+
+      <div id="showsControls" class="controls hidden">
+        <input id="showSearch" type="search" placeholder="Search TV shows…" autocomplete="off">
+        <button id="todayShowsBtn" class="button secondary">Today's U.S. TV</button>
+        <span id="showsCount" class="count"></span>
+      </div>
+
+      <div id="weatherControls" class="controls hidden">
+        <input id="weatherLocation" type="search" value="Fort Worth, TX" placeholder="City or ZIP code">
+        <button id="weatherBtn" class="button primary">Get weather</button>
+      </div>
+
+      <div id="radioControls" class="controls hidden">
+        <input id="radioSearch" type="search" placeholder="Search radio stations">
+        <button id="radioSearchBtn" class="button primary">Search radio</button>
+        <button id="radioTopBtn" class="button secondary">Top U.S.</button>
+        <span id="radioCount" class="count"></span>
+      </div>
+
+      <div id="notice" class="notice hidden"></div>
+      <div id="channelGrid" class="grid"></div>
+      <div id="sportsGrid" class="sports-grid hidden"></div>
+      <div id="showsGrid" class="media-grid hidden"></div>
+      <div id="weatherGrid" class="weather-grid hidden"></div>
+      <div id="radioGrid" class="radio-grid hidden"></div>
+    </section>
+
+    <aside class="player-panel">
+      <div id="player" class="player">
+        <div class="empty-player">
+          <strong>Select a channel</strong>
+          <span>The provider's documented iframe player will appear here.</span>
+        </div>
+      </div>
+      <div class="now-playing">
+        <h2 id="nowTitle">Nothing playing</h2>
+        <p id="nowMeta">Choose a TV channel, sports event, or radio station.</p>
+        <div class="player-actions">
+          <button id="openPlayerBtn" class="button primary" disabled>Open player</button>
+          <button id="copyUrlBtn" class="button secondary" disabled>Copy URL</button>
+        </div>
+      </div>
+      <div class="provider-note">
+        DUH TV combines third-party APIs at runtime. It does not host or restream video. Weather uses Open-Meteo, TV information uses TVmaze, and radio listings use Radio Browser.
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    <span>Third-party service data can change or go offline without notice.</span>
+    <span>CDNLiveTV • TVmaze • Open-Meteo • Radio Browser</span>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
